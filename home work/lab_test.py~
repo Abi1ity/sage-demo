@@ -1,9 +1,11 @@
-filo = open("lab.txt", 'r')
+filo = open("/home/abi1ity/sage-demo/home work/lab.txt", 'r')
 listoflines = filo.readlines()
 
 lab = [];
 
 lab = lab + [list(line)[:-1] for line in listoflines];
+print lab
+
 Hsize = len(lab[0]);
 Vsize = len(lab);
 start = (0,0);
@@ -15,6 +17,7 @@ stackNext = [start];
 lab[start[1]][start[0]] = 0;
 stop = False;
 while True:
+    print(lab);
 	stop = True;
 	stackPrev = stackNext[:];
 	stackNext = []; 
@@ -31,6 +34,7 @@ while True:
 	d+=1;	
 	if ((stop == True) or (lab[exit[1]][exit[0]] != '.')):
 		break;
+    
 if ((lab[exit[1]][exit[0]] != '.') and (lab[exit[1]][exit[0]] != '#')):
 	 print('YES');
 else:

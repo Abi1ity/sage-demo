@@ -1,4 +1,4 @@
-filo = open("lab.txt", 'r')
+filo = open("/home/abi1ity/sage-demo/home work/lab.txt", 'r')
 listoflines = filo.readlines()
 
 lab = [];
@@ -17,22 +17,24 @@ stackNext = [start];
 lab[start[1]][start[0]] = 0;
 stop = False;
 while True:
-	stop = True;
-	stackPrev = stackNext[:];
-	stackNext = []; 
-	while(stackPrev):
-		p = stackPrev.pop();
-		y = p[0];
-		x = p[1];
-  		for k in xrange(4):
-			if (0 <= y + dy[k] < Vsize) and (0 <= x + dx[k] < Hsize):
-				if (lab[y + dy[k]][x + dx[k]] == '.' ):
-					stop = False;
-					lab[y + dy[k]][x + dx[k]] = d + 1;
-					stackNext.append((y + dy[k], x + dx[k]));
-	d+=1;	
-	if ((stop == True) or (lab[exit[1]][exit[0]] != '.')):
-		break;
+    print(lab);
+    stop = True;
+    stackPrev = stackNext[:];
+    stackNext = []; 
+    while(stackPrev):
+	    p = stackPrev.pop();
+	    y = p[0];
+	    x = p[1];
+	    for k in xrange(4):
+		    if (0 <= y + dy[k] < Vsize) and (0 <= x + dx[k] < Hsize):
+			    if (lab[y + dy[k]][x + dx[k]] == '.' ):
+				    stop = False;
+				    lab[y + dy[k]][x + dx[k]] = d + 1;
+				    stackNext.append((y + dy[k], x + dx[k]));
+    d+=1;	
+    if ((stop == True) or (lab[exit[1]][exit[0]] != '.')):
+	    break;
+    
 if ((lab[exit[1]][exit[0]] != '.') and (lab[exit[1]][exit[0]] != '#')):
 	 print('YES');
 else:
